@@ -74,9 +74,9 @@ let g:minimap_width = 10
 let g:minimap_auto_start = 1
 let g:minimap_uaot_start_win_enter = 1
 
-" import lua configure
-lua require('settings')
 
 " plugins
 lua require('plugins')
 
+" import lua configure
+lua require('settings')

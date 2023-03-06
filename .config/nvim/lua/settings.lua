@@ -19,3 +19,8 @@ require("mason").setup({
 
 require 'lspconfig'.pyright.setup{}
 require 'lspconfig'.clangd.setup{}
+
+-- config for treesitter
+require("nvim-treesitter.install").command_extra_args = {
+    curl = {"--proxy", "http://127.0.0.1:7893"},
+}
