@@ -39,6 +39,13 @@ require("lazy").setup({
             "nvim-tree/nvim-web-devicons",
             "MunifTanjim/nui.nvim",
         }
+    },
+
+    {
+        "ellisonleao/gruvbox.nvim",
+        priority = 1000 ,
+        config = true,
+        opts = ...
     }
 })
 
