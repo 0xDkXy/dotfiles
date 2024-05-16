@@ -10,3 +10,4 @@ if [[ ! -d "~/.proxychains" ]]; then
     mkdir -p ~/.proxychains
 fi
 cp proxychains.conf ~/.proxychains/
+cp -r mutt ~/.mutt
