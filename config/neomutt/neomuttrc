@@ -7,11 +7,14 @@ source ~/.config/neomutt/mappings
 
 # Accounts
 
+source ~/.config/neomutt/accounts/lowell@0xdkxy.com
+folder-hook $folder 'source ~/.config/neomutt/accounts/lowell@0xdkxy.com'
+
 source ~/.config/neomutt/accounts/lihaoyu.0xdkxy@gmail.com
 folder-hook $folder 'source ~/.config/neomutt/accounts/lihaoyu.0xdkxy@gmail.com'
 
-source ~/.config/neomutt/accounts/lowell@0xdkxy.com
-folder-hook $folder 'source ~/.config/neomutt/accounts/lowell@0xdkxy.com'
+source ~/.config/neomutt/accounts/rutgers
+folder-hook $folder 'source ~/.config/neomutt/accounts/rutgers'
 # source ~/.config/neomutt/accounts/gmail
 # folder-hook $folder 'source ~/.config/neomutt/accounts/gmail'
 # 
