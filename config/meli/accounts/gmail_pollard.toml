@@ -1,0 +1,17 @@
+[accounts.gmail-pollard]
+root_mailbox = '[Gmail]'
+format = "imap"
+server_hostname='imap.gmail.com'
+#server_password="password"
+server_password_command="pass gmail/0xdkxy.pollardlee@gmail.com"
+server_username="0xdkxy.pollardlee@gmail.com"
+server_port="993"
+listing.index_style = "threaded"
+identity = "0xdkxy.pollardlee@gmail.com"
+display_name = "LOWELL LEE"
+## match every mailbox:
+subscribed_mailboxes = ["*" ]
+#composing.send_mail = 'msmtp --read-recipients --read-envelope-from'
+composing.send_mail = { hostname = "smtp.gmail.com", port = 587, auth = { type = "auto", username = "0xdkxy.pollardlee@gmail.com", password = { type = "command_eval", value = "pass gmail/0xdkxy.pollardlee@gmail.com" } }, security = { type = "STARTTLS" } }
+## Gmail auto saves sent mail to Sent folder, so don't duplicate the effort:
+composing.store_sent_mail = false

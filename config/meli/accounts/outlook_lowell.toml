@@ -1,0 +1,19 @@
+[accounts.lowell]
+root_mailbox = 'INBOX'
+format = "imap"
+server_hostname='outlook.office365.com'
+#server_password="password"
+server_password_command="pass outlook/lowell@0xdkxy.com"
+server_username="bo001015@outlook.com"
+server_port="993"
+use_tls=true
+#use_starttls=true
+listing.index_style = "threaded"
+identity = "lowell@0xdkxy.com"
+display_name = "HAOYU LI"
+## match every mailbox:
+subscribed_mailboxes = ["*" ]
+#composing.send_mail = 'msmtp --read-recipients --read-envelope-from'
+composing.send_mail = { hostname = "smtp-mail.outlook.com", port = 587, auth = { type = "auto", username = "bo001015@outlook.com", password = { type = "command_eval", value = "pass outlook/lowell@0xdkxy.com" } }, security = { type = "STARTTLS" } }
+## Gmail auto saves sent mail to Sent folder, so don't duplicate the effort:
+composing.store_sent_mail = false

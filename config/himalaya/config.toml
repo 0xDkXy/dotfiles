@@ -1,0 +1,43 @@
+display-name = "Haoyu Li"
+downloads-dir = "~/Downloads"
+# signature = "Cordialement,\nClément DOUIN"
+
+[accounts.outlook]
+default = true
+email = "lowell@0xdkxy.com"
+
+envelope.list.page-size = 40
+
+backend = "imap"
+imap.host = "outlook.office365.com"
+imap.port = 993
+imap.login = "lowell@0xdkxy.com"
+imap.passwd.cmd = "pass outlook/lowell@0xdkxy.com"
+
+message.send.backend = "smtp"
+smtp.host = "smtp-mail.outlook.com"
+smtp.port = 587
+smtp.encryption = "start-tls"
+smtp.login = "lowell@0xdkxy.com"
+smtp.passwd.cmd = "pass outlook/lowell@0xdkxy.com"
+
+[accounts.gmail-pollard]
+
+email = "0xdkxy.pollardlee@gmail.com"
+
+folder.alias.inbox = "INBOX"
+folder.alias.sent = "[Gmail]/Sent Mail"
+folder.alias.drafts = "[Gmail]/Drafts"
+folder.alias.trash = "[Gmail]/Trash"
+
+backend = "imap"
+imap.host = "imap.gmail.com"
+imap.port = 993
+imap.login = "0xdkxy.pollardlee@gmail.com"
+imap.passwd.cmd = "pass show gmail/0xdkxy.pollardlee@gmail.com"
+
+message.send.backend = "smtp"
+smtp.host = "smtp.gmail.com"
+smtp.port = 465
+smtp.login = "0xdkxy.pollardlee@gmail.com"
+smtp.passwd.cmd = "pass show gmail/0xdkxy.pollardlee@gmail.com"

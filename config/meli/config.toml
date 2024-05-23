@@ -1,0 +1,70 @@
+## Look into meli.conf(5) for all valid configuration options, their
+## descriptions and default values
+##
+## The syntax for including other configuration files is enclosed in `:
+##`include("account_one")`
+##`include("./account_two")`
+##`include("/home/absolute/path/to/shortcuts/config.toml")`
+##
+##
+include("./accounts/gmail_lihaoyu.toml")
+include("./accounts/gmail_pollard.toml")
+include("./accounts/rutgers.toml")
+#include("./accounts/outlook_lowell.toml")
+
+[pager]
+#filter = "COLUMNS=72 /usr/local/bin/pygmentize -l email"
+pager_context = 0 # default, optional
+sticky_headers = true # default, optional
+
+[notifications]
+script = "notify-send"
+xbiff_file_path = "path" # for use with xbiff(1)
+play_sound = true # default, optional
+sound_file = "path" # optional
+
+##shortcuts
+[shortcuts.composing]
+edit = 'e'
+
+[shortcuts.contact-list]
+create_contact = 'c'
+edit_contact = 'e'
+
+#Mail listing defaults
+[shortcuts.listing]
+prev_page = "PageUp"
+next_page = "PageDown"
+prev_mailbox = 'K'
+next_mailbox = 'J'
+prev_account = 'l'
+next_account = 'h'
+new_mail = 'm'
+set_seen = 'n'
+exit_entry = 'i'
+
+#Pager defaults
+
+[shortcuts.pager]
+scroll_up = 'k'
+scroll_down = 'j'
+page_up = "PageUp"
+page_down = "PageDown"
+
+[composing]
+#required for sending e-mail
+send_mail = 'msmtp --read-recipients --read-envelope-from'
+#send_mail = { hostname = "smtp.example.com", port = 587, auth = { type = "auto", username = "user", password = { type = "command_eval", value = "gpg2 --no-tty -q -d ~/.passwords/user.gpg" } }, security = { type = "STARTTLS" } }
+#editor_command = 'vim +/^$' # optional, by default $EDITOR is used.
+
+
+[pgp]
+auto_sign = false # always sign sent messages
+auto_verify_signatures = true # always verify signatures when reading signed e-mails
+
+[terminal]
+theme = "dark" # or "light"
+
+[log]
+log_file = "/tmp/meli.log"
+maximum_level = "TRACE"
