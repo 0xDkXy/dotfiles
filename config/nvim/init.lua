@@ -68,7 +68,5 @@ vim.opt.rtp:prepend(lazypath)
 
 require("plugins")
 require("settings")
+require("scripts")
 
--- set colorscheme
-vim.o.background = "dark"
-vim.cmd([[colorscheme gruvbox]])

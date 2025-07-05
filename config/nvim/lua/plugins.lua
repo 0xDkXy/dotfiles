@@ -46,6 +46,28 @@ require("lazy").setup({
         priority = 1000 ,
         config = true,
         opts = ...
+    },
+    "keaising/im-select.nvim",
+    {
+        "nvim-tree/nvim-tree.lua",
+        version = "*",
+        lazy = false,
+        dependencies = {
+            "nvim-tree/nvim-web-devicons",
+        },
+        config = function()
+            require("nvim-tree").setup{}
+        end,
+    },
+    {
+        "tiagovla/scope.nvim", config = true
+    },
+    {
+        'nvim-telescope/telescope.nvim',
+        branch = '0.1.x',
+        dependencies = {
+            'nvim-lua/plenary.nvim'
+        }
     }
 })
 
