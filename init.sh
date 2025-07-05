@@ -57,10 +57,8 @@ install_pkgs() {
 
     sudo pacman -S --needed \
         base-devel \
-        clangd \
-        clang-format \
+        clang \
         cmake \
-        mason \
         git \
         neovim \
         tmux \
@@ -68,11 +66,12 @@ install_pkgs() {
         firefox \
         alacritty \
         waybar \
-
+        ripgrep \
+        fd
 }
 
 submodules() {
-    git submodules update --init ./config/alacritty/alacritty-theme
+    git submodule update --init ./config/alacritty/alacritty-theme
 }
 
 copy_config() {
@@ -80,6 +79,17 @@ copy_config() {
     cp vimrc ~/.vimrc
     cp tmux.conf ~/.tmux.conf
     cp -rT config ~/.config
+}
+
+hyprland_plugins() {
+    hyprpm update
+    
+    if [[ -z $(hyprpm list | grep split-monitor-workspaces) ]]; then
+        yes | hyprpm add https://github.com/Duckonaut/split-monitor-workspaces
+        hyprpm enable split-monitor-workspaces
+    fi
+
+    hyprpm reload
 }
 
 # === Main logic ===
@@ -110,6 +120,9 @@ main() {
 
   log_info "Copying Configurations..."
   copy_config
+
+  log_info "Installing Hyprland Plugins..."
+  hyprland_plugins
 
   log_info "Script completed successfully."
 }
