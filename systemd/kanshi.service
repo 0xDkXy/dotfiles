@@ -1,0 +1,14 @@
+[Unit]
+Description=Kanshi Wayland Output Profile Daemon
+After=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/kanshi
+Restart=always
+RestartSec=3
+StartLimitIntervalSec=30
+StartLimitBurst=5
+
+[Install]
+WantedBy=default.target
+

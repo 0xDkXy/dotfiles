@@ -82,6 +82,25 @@ copy_config() {
     cp -rT config ~/.config
 }
 
+user_service() {
+    _PWD=$(PWD)
+    if [[ ! -d $HOME/.config/systemd/user/ ]]; then
+        log_info "Dir $HOME/.config/systemd/user doesn't exist. Create a new one"
+        mkdir -p $HOME/.config/systemd/user/
+    fi
+
+    cp systemd/*.service $HOME/.config/systemd/user/
+    sed -i "s/MYHOME/$HOME/g" $HOME/.config/systemd/user/waybar.service
+
+    cd systemd
+    shopt -s nullglob
+    services=(*.service)
+    shopt -u nullglob
+    systemctl --user start ${services[@]}
+
+    cd $_PWD
+}
+
 # === Main logic ===
 main() {
   log_info "Starting initialization..."
@@ -110,6 +129,9 @@ main() {
 
   log_info "Copying Configurations..."
   copy_config
+
+  log_info "Installing User Services..."
+  user_service
 
   log_info "Script completed successfully."
 }

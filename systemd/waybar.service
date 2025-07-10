@@ -1,0 +1,18 @@
+[Unit]
+Description=Waybar status bar for Wayland
+After=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/waybar -c MYHOME/.config/waybar/config_right.jsonc -s MYHOME/.config/waybar/style_right.css
+Restart=always
+RestartSec=2
+StartLimitIntervalSec=30
+StartLimitBurst=5
+
+# Optional: log to journal, not to terminal
+#$StandardOutput=journal
+#StandardError=journal
+
+[Install]
+WantedBy=default.target
+
